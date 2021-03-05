@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body style="background: transparent;">
+    <script src="scripts/docstrap.lib.js"></script>
+    <script src="scripts/lunr.min.js"></script>
+    <script src="scripts/fulltext-search.js"></script>
+
+    <script type="text/x-docstrap-searchdb">
+    {"Server.js.html":{"id":"Server.js.html","title":"Source: Server.js","body":" Accelerator File System Classes Server Source: Server.js 'use strict' import express from 'express' import * as graphql from 'express-graphql' import { buildSchema } from 'graphql' /** * @Class Server * @summary An Express server abstraction implementing a simple graphql API * @description The server class implements an simple graphql API listing files from a speciic directory */ export default class Server { #_app constructor() { this.#_app = express() } /** * @Method Server.setErrorHandler * @summary Set a generic error handler for this server - PRIVATE, not externally callable * @description In a real world app it could be generating logs or sending \"error messages\" to an message queue */ #_setErrorHandler() { this.#_app.configure(() =&gt; { this.#_app.use(this.#_errorHandler) }) } /** * @Method Server.errorHandler * @summary Generic error handler - PRIVATE, not externally callable * @description Intercepts all errors and properly handle those * @param {object} error - the exception information * @param {object} req - the Express request object * @param {object} res - the Express request object * @param {function} next - the Express next() function that is called inside middleware, but in this case, it will not be called. */ #_errorHandler(error, req, res, next) { // log goes here process.exit(0) } /** * @async * @Method Server.init * @summary Inits the Server instance * @description This method calls express().listen * @return {object} error - if any */ init() { return new Promise((resolve, reject) =&gt; { this.#_setErrorHandler() this.#_app.listen(4000, () =&gt; { resolve() console.log('app running on localhost:4000/graphql') }).on('error', function (err) { reject(err) process.exit(0) }) }) } /** * @async * @Method Server.start * @summary Create a Server instance * @description Abstracts the Class initialization once there is no need for running multiple server in this way. &lt;br&gt; * The server will be clustered via pm2. &lt;br&gt; * This method calls express().listen * @return {object} signature - method signature * @return {string|object} signature.error - Execution error * @return {object} signature.server - Server instance */ static async start() { let error = null let server = new Server() try { await server.init() } catch (e) { server = null error = e throw new Error({ error, server }) } return { error, server } } } × Search results Close "},"classes.list.html":{"id":"classes.list.html","title":"Classes","body":" Accelerator File System Classes Server Classes Classes Server An Express server abstraction implementing a simple graphql API × Search results Close "},"index.html":{"id":"index.html","title":"Index","body":" Accelerator File System Classes Server | Accelerator File System API - POC × Search results Close "},"Server.html":{"id":"Server.html","title":"Class: Server","body":" Accelerator File System Classes Server Class: Server Server new Server() An Express server abstraction implementing a simple graphql API The server class implements an simple graphql API listing files from a speciic directory Source: Server.js, line 7 Methods &lt;static&gt; errorHandler(error, req, res, next) Generic error handler - PRIVATE, not externally callable Intercepts all errors and properly handle those Parameters: Name Type Description error object the exception information req object the Express request object res object the Express request object next function the Express next() function that is called inside middleware, but in this case, it will not be called. Source: Server.js, line 29 &lt;async, static&gt; init() Inits the Server instance This method calls express().listen Source: Server.js, line 42 Returns: error - if any Type object &lt;static&gt; setErrorHandler() Set a generic error handler for this server - PRIVATE, not externally callable In a real world app it could be generating logs or sending \"error messages\" to an message queue Source: Server.js, line 19 &lt;async, static&gt; start() Create a Server instance Abstracts the Class initialization once there is no need for running multiple server in this way. The server will be clustered via pm2. This method calls express().listen Source: Server.js, line 62 Returns: signature - method signature Type object signature.error - Execution error Type string | object signature.server - Server instance Type object × Search results Close "}}
+    </script>
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+            Searcher.init();
+        });
+
+        $(window).on("message", function(msg) {
+            var msgData = msg.originalEvent.data;
+
+            if (msgData.msgid != "docstrap.quicksearch.start") {
+                return;
+            }
+
+            var results = Searcher.search(msgData.searchTerms);
+
+            window.parent.postMessage({"results": results, "msgid": "docstrap.quicksearch.done"}, "*");
+        });
+    </script>
+</body>
+</html>
