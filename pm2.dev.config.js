@@ -5,10 +5,14 @@ module.exports = {
   "apps": [
     {
       "name": pkg.name + "-dev",
-      "script": "./src/app.js",
-      "watch": ["src/**/*.{js,yaml}"],
+      "script": "./src/index.js",
+      "watch": ["./src/*.{js}"],
+      "cwd": __dirname,
       "exec_interpreter": "babel-node",
+      "exp_backoff_restart_delay": 100,
+      "max_memory_restart": '100M',
       "env": {
+        "PORT": 4000,
         "NODE_ENV": env
       },
       "args": [
