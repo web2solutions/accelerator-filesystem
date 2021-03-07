@@ -5,7 +5,7 @@ module.exports = {
   "apps": [
     {
       "name": pkg.name,
-      "script": "./dist/app.js",
+      "script": "./dist/index.js",
       "instances": 'max',
       "exec_mode": "cluster",
       "instance_var": 'INSTANCE_ID',

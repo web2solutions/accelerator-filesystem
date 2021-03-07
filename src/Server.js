@@ -43,9 +43,9 @@ export default class Server {
     this.#_app = express()
     this.#_setAPISchema()
     this.#_root = {
-      files: () => {
-        console.log('xxxxxxxxxxxxx')
-        return Promise.resolve(self.#_getDirectry({dir: './'}))
+      files: (arg = {}) => {
+        console.log('xxxxxxxxxxxxx', arg)
+        return Promise.resolve(self.#_getDirectry(arg))
       }
 
     }
@@ -131,7 +131,6 @@ export default class Server {
   #_setAPISchema() {
     this.#_schema = buildSchema(`
       type Query {
-          file(name: String): File
           files(dir: String): [File]
       },
       type File {
@@ -166,8 +165,7 @@ export default class Server {
         fullPath
       })
     }
-    
-    console.log(all)
+    // console.log(all)
     return all
   }
 
@@ -186,8 +184,7 @@ export default class Server {
     // this.#_app.use('/', new FilesRouter(this))
     this.#_app.use('/graphql', graphqlHTTP({
       schema: this.#_schema,
-      rootValue: this.#_root,
-      graphiql: true
+      rootValue: this.#_root
     }))
   }
 }
