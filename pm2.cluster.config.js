@@ -8,12 +8,14 @@ module.exports = {
       "script": "./dist/app.js",
       "instances": 'max',
       "exec_mode": "cluster",
+      "instance_var": 'INSTANCE_ID',
+      "exp_backoff_restart_delay": 100,
+      "max_memory_restart": '100M',
+      "increment_var" : 'PORT',
       "watch": false,
       "env": {
-        "NODE_ENV": env
-      },
-      "env_production": {
-        "NODE_ENV": "production"
+        "NODE_ENV": env,
+        "PORT": 4000,
       }
     }
   ]
