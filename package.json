@@ -19,7 +19,7 @@
     "cy:run": "cypress run --spec \"cypress/integration/*\" --reporter mochawesome",
     "cy:open": "cypress open && cypress run",
     "start": "npm stop && pm2-dev pm2.dev.config.js",
-    "stop": "pm2 stop pm2.simple.config.js pm2.cluster.config.js && pm2 delete pm2.simple.config.js pm2.cluster.config.js",
+    "stop": "pm2 stop pm2.cluster.config.js && pm2 delete pm2.cluster.config.js",
     "update": "pm2 update"
   },
   "author": "José Eduardo Perotta de Almeida",
@@ -33,6 +33,7 @@
     "@babel/cli": "^7.12.10",
     "@babel/core": "^7.12.10",
     "@babel/eslint-parser": "^7.12.1",
+    "@babel/node": "^7.13.0",
     "@babel/plugin-external-helpers": "^7.12.13",
     "@babel/plugin-proposal-class-properties": "^7.12.1",
     "@babel/plugin-proposal-private-methods": "^7.12.1",
@@ -45,6 +46,7 @@
     "@cypress/code-coverage": "^3.9.2",
     "assert": "^2.0.0",
     "babel-plugin-istanbul": "^6.0.0",
+    "core-js": "^2.6.12",
     "cypress": "^6.4.0",
     "eslint": "^7.18.0",
     "eslint-config-prettier": "^7.2.0",
@@ -53,10 +55,9 @@
     "jsdoc-to-markdown": "^6.0.1",
     "mocha": "^8.2.1",
     "mochawesome": "^6.2.1",
+    "mochawesome-merge": "^4.2.0",
     "mochawesome-report-generator": "^5.1.0",
-    "prettier": "^2.2.1",
-    "core-js": "^2.6.12",
-    "mochawesome-merge": "^4.2.0"
+    "prettier": "^2.2.1"
   },
   "presets": [
     "@babel/preset-env"
