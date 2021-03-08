@@ -10,6 +10,11 @@
 ## Install
 
 ```bash
+$ docker build -t accelerator-filesystem
+```
+or
+
+```bash
 $ npm  install
 ```
 
