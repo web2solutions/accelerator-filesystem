@@ -10,7 +10,8 @@
 ## Install
 
 ```bash
-$ docker build -t accelerator-filesystem
+$ docker build -t <youruser>/accelerator-filesystem
+$ docker run -p 4000:4000 -d <youruser>/accelerator-filesystem
 ```
 or
 
