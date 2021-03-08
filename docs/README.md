@@ -1,7 +1,7 @@
 # Accelerator File System API - POC
 
-[![CircleCI](https://circleci.com/gh/web2solutions/accelerator-filesystem/tree/main.svg?style=svg&circle-token=90763301207d4b9d769175058c7ae40605dd4f42)](https://circleci.com/gh/web2solutions/accelerator-filesystem/tree/main)
 
+[![<accelerator-filesystem>](https://circleci.com/gh/web2solutions/accelerator-filesystem.svg?style=svg)](<LINK>)
 
 ## Code documentation
 
