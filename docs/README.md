@@ -1,6 +1,6 @@
 # Accelerator File System API - POC
 
-[![CircleCI](https://circleci.com/gh/web2solutions/voodux/tree/main.svg?style=svg&circle-token=9d237bc24e3336b97f53ab9626f8a2ceb6f230b3)](https://circleci.com/gh/web2solutions/voodux/tree/main) | [![codecov](https://codecov.io/gh/web2solutions/voodux/branch/main/graph/badge.svg?token=3zGpnoRLdG)](https://codecov.io/gh/web2solutions/voodux)
+[![CircleCI](https://circleci.com/gh/web2solutions/accelerator-filesystem/tree/main.svg?style=svg&circle-token=90763301207d4b9d769175058c7ae40605dd4f42)](https://circleci.com/gh/web2solutions/accelerator-filesystem/tree/main)
 
 
 ## Code documentation
