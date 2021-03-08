@@ -41,8 +41,8 @@ describe('API TEST SUITE', () => {
   it('GET /graphql end point passing files query without dir argument must returns files from API application root directory', async () => {
     let query = encodeURI('{files{name size fullPath}}')
     const response = await chai.request(_server.app).get(`/graphql?query=${query}`)
-    // console.log(response.body.data.files)
-    response.body.data.files[0].name.should.eql('.DS_Store')
+    assert.equal(response.body.data.files.length > 0, true)
+    // 
   })
 
 })
