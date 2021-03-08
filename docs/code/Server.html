@@ -141,7 +141,7 @@
 		<ul class="dummy">
 			<li>
 				<a href="Server.js.html">Server.js</a>,
-				 <a href="Server.js.html#sunlight-1-line-29">line 29</a>
+				 <a href="Server.js.html#sunlight-1-line-13">line 13</a>
 			</li>
 		</ul>
 	</dd>
@@ -192,18 +192,17 @@
             
 <hr>
 <dt>
-    <h4 class="name" id="._getDirectry"><span class="type-signature">&lt;async, static> </span>_getDirectry()</h4>
+    <h4 class="name" id="._addRouter"><span class="type-signature">&lt;static> </span>_addRouter()</h4>
     
     
-    <p class="summary">PRIVATE - List itens from given file system directory</p>
+    <p class="summary">PRIVATE - Adds the /graphql route to the HTTP server</p>
     
 </dt>
 <dd>
 
     
     <div class="description">
-        By default it will to list content from ./
-By default, this API will allow to list content starting on API application directory.<br>
+        Adds the graphql routes by using express-graphql middleware
     </div>
     
 
@@ -250,7 +249,7 @@ By default, this API will allow to list content starting on API application dire
 		<ul class="dummy">
 			<li>
 				<a href="Server.js.html">Server.js</a>,
-				 <a href="Server.js.html#sunlight-1-line-144">line 144</a>
+				 <a href="Server.js.html#sunlight-1-line-179">line 179</a>
 			</li>
 		</ul>
 	</dd>
@@ -283,17 +282,18 @@ By default, this API will allow to list content starting on API application dire
             
 <hr>
 <dt>
-    <h4 class="name" id="._setAPISchema()"><span class="type-signature">&lt;static> </span>_setAPISchema()()</h4>
+    <h4 class="name" id="._getDirectory"><span class="type-signature">&lt;async, static> </span>_getDirectory()</h4>
     
     
-    <p class="summary">PRIVATE Set the graphql schema</p>
+    <p class="summary">PRIVATE - List itens from given file system directory</p>
     
 </dt>
 <dd>
 
     
     <div class="description">
-        Currently providing two queries: file and files
+        By default it will to list content from __dirname
+By default, this API will to list content from application directory root.<br>
     </div>
     
 
@@ -340,7 +340,237 @@ By default, this API will allow to list content starting on API application dire
 		<ul class="dummy">
 			<li>
 				<a href="Server.js.html">Server.js</a>,
-				 <a href="Server.js.html#sunlight-1-line-126">line 126</a>
+				 <a href="Server.js.html#sunlight-1-line-130">line 130</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    files - Array of file. 
+Each file is an object containing name, size and fullPath
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">array</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="._readDir"><span class="type-signature">&lt;async, static> </span>_readDir()</h4>
+    
+    
+    <p class="summary">PRIVATE - Read a given directory usin fs and promise</p>
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        By default it will to list content from __dirname
+By default, this API will to list content from application directory root.<br>
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="Server.js.html">Server.js</a>,
+				 <a href="Server.js.html#sunlight-1-line-160">line 160</a>
+			</li>
+		</ul>
+	</dd>
+	
+
+	
+
+	
+
+	
+</dl>
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <h5>Returns:</h5>
+    
+            
+<div class="param-desc">
+    files - Returns an Array of file names when promise is resolved
+</div>
+
+
+
+<dl>
+    <dt>
+        Type
+    </dt>
+    <dd>
+        
+<span class="param-type">promise</span>
+
+
+
+    </dd>
+</dl>
+
+
+        
+
+    
+</dd>
+
+        
+            
+<hr>
+<dt>
+    <h4 class="name" id="._setAPISchema()"><span class="type-signature">&lt;static> </span>_setAPISchema()()</h4>
+    
+    
+    <p class="summary">PRIVATE Set the graphql schema</p>
+    
+</dt>
+<dd>
+
+    
+    <div class="description">
+        Currently providing one query: files
+    </div>
+    
+
+    
+
+    
+
+    
+    
+
+    
+<dl class="details">
+    
+
+	
+
+	
+
+	
+
+    
+
+    
+
+    
+
+    
+
+	
+
+	
+
+	
+
+	
+
+	
+
+
+
+	
+	<dt class="tag-source method-doc-label method-doc-details-label">Source:</dt>
+	<dd class="tag-source">
+		<ul class="dummy">
+			<li>
+				<a href="Server.js.html">Server.js</a>,
+				 <a href="Server.js.html#sunlight-1-line-112">line 112</a>
 			</li>
 		</ul>
 	</dd>
@@ -552,7 +782,7 @@ By default, this API will allow to list content starting on API application dire
 		<ul class="dummy">
 			<li>
 				<a href="Server.js.html">Server.js</a>,
-				 <a href="Server.js.html#sunlight-1-line-62">line 62</a>
+				 <a href="Server.js.html#sunlight-1-line-44">line 44</a>
 			</li>
 		</ul>
 	</dd>
@@ -642,7 +872,7 @@ By default, this API will allow to list content starting on API application dire
 		<ul class="dummy">
 			<li>
 				<a href="Server.js.html">Server.js</a>,
-				 <a href="Server.js.html#sunlight-1-line-75">line 75</a>
+				 <a href="Server.js.html#sunlight-1-line-57">line 57</a>
 			</li>
 		</ul>
 	</dd>
@@ -756,7 +986,7 @@ By default, this API will allow to list content starting on API application dire
 		<ul class="dummy">
 			<li>
 				<a href="Server.js.html">Server.js</a>,
-				 <a href="Server.js.html#sunlight-1-line-54">line 54</a>
+				 <a href="Server.js.html#sunlight-1-line-36">line 36</a>
 			</li>
 		</ul>
 	</dd>
@@ -848,7 +1078,7 @@ This method calls express().listen
 		<ul class="dummy">
 			<li>
 				<a href="Server.js.html">Server.js</a>,
-				 <a href="Server.js.html#sunlight-1-line-100">line 100</a>
+				 <a href="Server.js.html#sunlight-1-line-86">line 86</a>
 			</li>
 		</ul>
 	</dd>
@@ -1002,7 +1232,7 @@ This method calls express().listen
 <span class="jsdoc-message">
 	Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.6</a>
 	
-		on 2021-03-07T01:19:18-03:00
+		on 2021-03-07T23:33:59-03:00
 	
 	using the <a href="https://github.com/docstrap/docstrap">DocStrap template</a>.
 </span>

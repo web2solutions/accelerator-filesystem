@@ -15,6 +15,7 @@ module.exports = {
       "watch": false,
       "env": {
         "NODE_ENV": env,
+        "HOST": "0.0.0.0",
         "PORT": 4000,
       }
     }

@@ -6,24 +6,8 @@ import { buildSchema } from 'graphql'
 import fs from 'fs'
 import path from 'path'
 
-
-// console.log('graphqlHTTP', graphqlHTTP)
-
-
-const FilesController = (() => {
-  const api = {
-    list: (req, res) => {
-      res.json({ok: true})
-    }
-  }
-  return api
-})()
-class FilesRouter extends express.Router {
-  constructor(app) {
-      super()
-      this.get('/', FilesController.list)
-  }
-}
+const HOST = process.env.HOST || '0.0.0.0'
+const PORT = process.env.PORT || 4000
 
 
 /**
@@ -44,10 +28,8 @@ export default class Server {
     this.#_setAPISchema()
     this.#_root = {
       files: (arg = {}) => {
-        console.log('xxxxxxxxxxxxx', arg)
-        return Promise.resolve(self.#_getDirectry(arg))
+        return Promise.resolve(self.#_getDirectory(arg))
       }
-
     }
     this.#_inited = false
   }
@@ -86,15 +68,19 @@ export default class Server {
       }
       this.#_setErrorHandler()
       this.#_addRouter()
-      this.#_app.listen(process.env.PORT, () => {
+      this.#_app.listen(PORT, HOST, () => {
         this.#_inited = true
         resolve()
-        console.log(`app running on localhost:${process.env.PORT}/graphql`)
+        console.log(`app running on ${HOST}:${PORT}/graphql`)
       }).on('error', function (err) {
         reject(err)
         process.exit(0)
       })
     })
+  }
+
+  get app() {
+    return this.#_app
   }
 
   /**
@@ -126,7 +112,7 @@ export default class Server {
   /**
    * @Method Server.#_setAPISchema()
    * @summary PRIVATE Set the graphql schema
-   * @description Currently providing two queries: file and files
+   * @description Currently providing one query: files
    */
   #_setAPISchema() {
     this.#_schema = buildSchema(`
@@ -143,13 +129,15 @@ export default class Server {
 
   /**
    * @async
-   * @Method Server.#_getDirectry
+   * @Method Server.#_getDirectory
    * @summary PRIVATE - List itens from given file system directory
-   * @description By default it will to list content from ./
-   * By default, this API will allow to list content starting on API application directory.<br>
+   * @description By default it will to list content from __dirname
+   * By default, this API will to list content from application directory root.<br>
+   * @return  {array} files - Array of file. 
+   * Each file is an object containing name, size and fullPath
    */
-  async #_getDirectry(args = {}) {
-    let _dir = __dirname
+  async #_getDirectory(args = {}) {
+    let _dir = path.join(__dirname, '..')
     const all = []
     if (args.dir) {
       _dir = path.resolve(`./${args.dir}`)
@@ -169,6 +157,14 @@ export default class Server {
     return all
   }
 
+  /**
+   * @async
+   * @Method Server.#_readDir
+   * @summary PRIVATE - Read a given directory usin fs and promise
+   * @description By default it will to list content from __dirname
+   * By default, this API will to list content from application directory root.<br>
+   * @return  {promise} files - Returns an Array of file names when promise is resolved
+   */
   #_readDir(dir) {
     return new Promise((resolve, reject) => {
       fs.readdir(dir, (error, files) => {
@@ -180,6 +176,11 @@ export default class Server {
     })
   }
 
+  /**
+   * @Method Server.#_addRouter
+   * @summary PRIVATE - Adds the /graphql route to the HTTP server
+   * @description Adds the graphql routes by using express-graphql middleware
+   */
   #_addRouter() {
     // this.#_app.use('/', new FilesRouter(this))
     this.#_app.use('/graphql', graphqlHTTP({

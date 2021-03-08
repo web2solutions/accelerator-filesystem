@@ -13,6 +13,7 @@ module.exports = {
       "max_memory_restart": '100M',
       "env": {
         "PORT": 4000,
+        "HOST": "0.0.0.0",
         "NODE_ENV": env
       },
       "args": [
