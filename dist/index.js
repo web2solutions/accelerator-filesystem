@@ -10,7 +10,7 @@ var _Server = _interopRequireDefault(require("./Server.js"));
 
 function cov_2an1wcgbxe() {
   var path = "/Users/admin/apps/accelerator-filesystem/src/index.js";
-  var hash = "28a4adc8d14aa04cdf7375d5ca10ec49a7541f14";
+  var hash = "cdebe54c83de7631c8288ce1a38fe0861a67c056";
   var global = new Function("return this")();
   var gcv = "__coverage__";
   var coverageData = {
@@ -34,6 +34,16 @@ function cov_2an1wcgbxe() {
         end: {
           line: 4,
           column: 46
+        }
+      },
+      "2": {
+        start: {
+          line: 5,
+          column: 2
+        },
+        end: {
+          line: 5,
+          column: 47
         }
       }
     },
@@ -66,14 +76,15 @@ function cov_2an1wcgbxe() {
     branchMap: {},
     s: {
       "0": 0,
-      "1": 0
+      "1": 0,
+      "2": 0
     },
     f: {
       "0": 0
     },
     b: {},
     _coverageSchema: "1a1c01bbd47fc00a2c39e90264f33305004495a9",
-    hash: "28a4adc8d14aa04cdf7375d5ca10ec49a7541f14"
+    hash: "cdebe54c83de7631c8288ce1a38fe0861a67c056"
   };
   var coverage = global[gcv] || (global[gcv] = {});
 
@@ -108,8 +119,10 @@ cov_2an1wcgbxe().s[0]++;
           _ref2 = _context.sent;
           error = _ref2.error;
           server = _ref2.server;
+          cov_2an1wcgbxe().s[2]++;
+          console.log('XXXX+++++++++++app', server.app);
 
-        case 7:
+        case 9:
         case "end":
           return _context.stop();
       }
