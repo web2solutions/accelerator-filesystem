@@ -4,7 +4,6 @@ const chaiHttp = require('chai-http')
 const Server = require('../dist/Server.js').default
 const should = chai.should()
 const assert = require('assert')
-const APIURL = 'http://0.0.0.0:4000'
 
 chai.use(chaiHttp)
 
