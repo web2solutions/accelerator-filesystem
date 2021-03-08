@@ -24,3 +24,9 @@ $ npm  install
 ```bash
 $ npm  test
 ```
+
+## Build ES5 distribution
+
+```bash
+$ npm  run build
+```
