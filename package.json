@@ -11,6 +11,7 @@
     "build": "npm run lint && npm run rm && npm run doc && babel src -d dist",
     "rm": "rm -rf ./dist && mkdir dist/",
     "start:dev": "pm2-dev pm2.dev.config.js",
+    "pretest": "npm install",
     "test": "npm run build && cross-env PORT=8000 HOST=0.0.0.0 ./node_modules/.bin/mocha test --exit",
     "start": "npm ci && npm run build && cd dist && node index.js",
     "update": "pm2 update"
